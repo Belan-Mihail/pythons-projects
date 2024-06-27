@@ -6,7 +6,14 @@ abs_file_path = os.path.join(script_dir, rel_path)
 master_pwd = input('What is the master password? ')
 
 def view():
-    pass
+    with open(abs_file_path, 'r') as f:
+        # this loop read all lines
+        for line in f.readlines():
+            # rstrip remove break line
+            data = line.rstrip()
+            user, passw = data.split('|')
+            print('User:', user, '| Password:', passw)
+        
 
 def add():
     name = input('Account Name: ')
