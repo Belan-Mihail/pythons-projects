@@ -1,3 +1,8 @@
+import os
+script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
+rel_path = "password.txt"
+abs_file_path = os.path.join(script_dir, rel_path)
+
 master_pwd = input('What is the master password? ')
 
 def view():
@@ -12,8 +17,9 @@ def add():
     # r mode allow us only read file
     # w mode overwrite (clear and create new one) all data if file already exist
     # f it is name off our file 
-    with open('password.txt', 'a') as f:
-        f.write(name + '|' + pwd)
+    # '\n' line break
+    with open(abs_file_path, 'a') as f:
+        f.write(name + '|' + pwd + '\n')
 
 
 
