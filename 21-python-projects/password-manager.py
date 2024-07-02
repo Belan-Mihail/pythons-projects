@@ -1,9 +1,17 @@
 import os
+from cryptography.fernet import Fernet
 script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
 rel_path = "password.txt"
 abs_file_path = os.path.join(script_dir, rel_path)
 
 master_pwd = input('What is the master password? ')
+
+def write_key():
+    key = Fernet.generate_key()
+    # create and open key.key as key_file- 'wb' special form
+    with open('key.key', 'wb') as key_file:
+        # write in this file key that we generated 
+        key_file.write(key)
 
 def view():
     with open(abs_file_path, 'r') as f:
@@ -44,3 +52,5 @@ while True:
     else: 
         print('Invalid mode')
         continue
+
+# 1:26:50
