@@ -4,20 +4,28 @@ script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
 rel_path = "password.txt"
 abs_file_path = os.path.join(script_dir, rel_path)
 
-master_pwd = input('What is the master password? ')
+# def write_key():
+#     key = Fernet.generate_key()
+#     # create and open key.key as key_file- 'wb' special form
+#     with open('key.key', 'wb') as key_file:
+#         # write in this file key that we generated 
+#         key_file.write(key)
 
-def write_key():
-    key = Fernet.generate_key()
-    # create and open key.key as key_file- 'wb' special form
-    with open('key.key', 'wb') as key_file:
-        # write in this file key that we generated 
-        key_file.write(key)
+
 
 def load_key():
     file = open('key.key', 'rb')
     key = file.read()
     file.close()
     return key
+
+master_pwd = input('What is the master password? ')
+# add master_pwd encoded to generated key
+key = load_key() + master_pwd.encode()
+fer = Fernet(key)
+
+
+
 
 def view():
     with open(abs_file_path, 'r') as f:
@@ -26,7 +34,7 @@ def view():
             # rstrip remove break line
             data = line.rstrip()
             user, passw = data.split('|')
-            print('User:', user, '| Password:', passw)
+            print('User:', user, '| Password:', fer.decrypt(passw.encode()).decode())
         
 
 def add():
@@ -40,7 +48,7 @@ def add():
     # f it is name off our file 
     # '\n' line break
     with open(abs_file_path, 'a') as f:
-        f.write(name + '|' + pwd + '\n')
+        f.write(name + '|' + fer.encrypt(pwd.encode()).decode() + '\n')
 
 
 
