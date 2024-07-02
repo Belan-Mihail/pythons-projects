@@ -13,6 +13,12 @@ def write_key():
         # write in this file key that we generated 
         key_file.write(key)
 
+def load_key():
+    file = open('key.key', 'rb')
+    key = file.read()
+    file.close()
+    return key
+
 def view():
     with open(abs_file_path, 'r') as f:
         # this loop read all lines
