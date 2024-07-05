@@ -67,4 +67,4 @@ while True:
         print('Invalid mode')
         continue
 
-# 1:26:50
+# 1:37:33
