@@ -1,7 +1,7 @@
-with open('story.txt', 'r') as f:
+with open('21-python-projects/story.txt', 'r') as f:
    story = f.read() 
 
-words = []
+words = set()
 start_of_world = -1
 target_start = '<'
 target_end = '>'
@@ -19,5 +19,7 @@ for i, char in enumerate(story):
    if char == target_end and start_of_world != -1:
     #   slice (start index = start_of_world, end index = i + 1)
       word = story[start_of_world: i + 1]
-      words.append(word)
+      words.add(word)
       start_of_world = -1
+
+print(words)
