@@ -24,6 +24,15 @@ def get_slot_machine_spin(rows, cols, symbols):
             all_symbols.append(symbol)
     
     columns = [[], [], []]
+    for col in range(cols):
+        column = []
+        # [:] - slice meth to copy list all_symbols in list current_symbols
+        current_symbols = all_symbols[:]
+        for row in range(rows):
+            value = random.choice(current_symbols)
+            # we remove value from current_symbol. so that value is not repeated more than allow number times 
+            current_symbols.remove(value)
+
 
 
 
