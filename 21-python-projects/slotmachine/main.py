@@ -15,6 +15,35 @@ symbol_count = {
     'D': 8
 }
 
+symbol_value = {
+    'A': 5,
+    'B': 4,
+    'C': 3,
+    'D': 2
+}
+
+def check_winnings(columns, lines, bet, values):
+    winnings = 0
+    winning_lines = []
+    # chec every line
+    for line in range(lines):
+        # first symbol or row- we want to check if this symbol the same symbols in another columns
+        symbol = columns[0][line]
+        for column in columns:
+            # check line
+            symbol_to_check = column[line]
+            # if symbols != another symbol = break user is lose
+            if symbol != symbol_to_check:
+                break
+            # if the symbols same_ user win
+        else: 
+            winnings += values[symbol] * bet
+            winning_lines.append(line + 1)
+    return winnings, winning_lines
+
+
+
+
 def get_slot_machine_spin(rows, cols, symbols):
     all_symbols = []
     # .tems give us a key and associated value for this key
@@ -112,5 +141,8 @@ def main():
 
     slots = get_slot_machine_spin(ROWS, COLS, symbol_count)
     print_slot_machine(slots)
+    winnings, winning_lines = check_winnings(slots, lines, bet, symbol_value)
+    print(f'you won ${winnings}')
+    print(f"You won on lines:", *winning_lines)
 
 main()
