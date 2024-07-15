@@ -1,7 +1,9 @@
 import turtle
 import time
+import random
 
 WIDTH, HEIGHT = 500, 500
+COLORS = ['red', 'green', 'blue', 'orange', 'yellow', 'black', 'purple', 'pink', 'brown', 'cyan']
 
 
 
@@ -34,7 +36,11 @@ def init_turtle():
 racers = get_number_of_racers()
 init_turtle()
 
+# random shuffle colors inside
+random.shuffle(COLORS)
 
+# we slice our shuffled list accroding number of racers that we have
+colors = COLORS[:racers]
 
 
 # we use this module to can change the object - turtle
