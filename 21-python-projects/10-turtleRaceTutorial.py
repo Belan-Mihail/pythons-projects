@@ -34,23 +34,64 @@ def init_turtle():
 racers = get_number_of_racers()
 init_turtle()
 
-# we use this module to can change the object
-racer = turtle.Turtle()
-# change racer speed
-racer.speed(2)
 
-# change icon (arrow => turtle)
-racer.shape('turtle')
 
-# change color of racer
-racer.color('cian')
 
-# racer will move forward for 100 px
-racer.forward(100)
-# 90 degree to turn to the left
-racer.left(90)
-# racer will move forward for 100 px
-racer.forward(100)
-# 90 degree to turn ti the right
-racer.right(90)
-time.sleep(5)
+# we use this module to can change the object - turtle
+# racer = turtle.Turtle()
+
+
+
+# # change racer speed
+# racer.speed(2)
+
+# # no line behind the turtle
+# racer.penup()
+
+# # change icon (arrow => turtle)
+# racer.shape('turtle')
+
+# # change color of racer
+# racer.color('cyan')
+
+# # racer will move forward for 100 px
+# racer.forward(100)
+# # 90 degree to turn to the left
+# racer.left(90)
+# # racer will move forward for 100 px
+
+# # return line behind the turtle
+# racer.pendown()
+
+# racer.forward(100)
+# # 90 degree to turn ti the right
+# racer.right(90)
+
+
+
+# # create one more racer
+# racer2 = turtle.Turtle()
+# # change racer speed
+# racer2.speed(5)
+
+# # no line behind the turtle
+# racer2.penup()
+
+# # change icon (arrow => turtle)
+# racer2.shape('turtle')
+
+# # change color of racer
+# racer2.color('red')
+
+# # racer will move forward for 100 px
+# racer2.forward(150)
+# # 90 degree to turn to the left
+# racer2.left(90)
+# # racer will move forward for 100 px
+
+# # return line behind the turtle
+# racer2.pendown()
+
+# racer2.forward(100)
+# # 90 degree to turn ti the right
+# racer2.right(90)
