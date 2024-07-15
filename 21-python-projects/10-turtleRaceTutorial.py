@@ -9,27 +9,45 @@ COLORS = ['red', 'green', 'blue', 'orange', 'yellow', 'black', 'purple', 'pink',
 
 
 def get_number_of_racers():
-	racers = 0
-	while True:
-		racers = input('Enter the number of racers (2 - 10): ')
-		if racers.isdigit():
-			racers = int(racers)
-		else:
-			print('Input is not numeric... Try Again!')
-			continue
+    racers = 0
+    while True:
+        racers = input('Enter the number of racers (2 - 10): ')
+        if racers.isdigit():
+            racers = int(racers)
+        else:
+            print('Input is not numeric... Try Again!')
+            continue
 
-		if 2 <= racers <= 10:
-			return racers
-		else:
-			print('Number not in range 2-10. Try Again!')
+        if 2 <= racers <= 10:
+            return racers
+        else:
+            print('Number not in range 2-10. Try Again!')
 
+
+def create_turtles(colors):
+    turtles = []
+    
+    for i, color in enumerate(colors):
+        racer = turtle.Turtle()
+        racer.color(color)
+        racer.shape('turtle')
+        # to turn racer up
+        racer.left(90)
+        turtles.append(racer)
+
+    # enumerate give us a index and value for each items we lopp through
+    # ['red', 'green']
+    # first loops itteration: i = 0, color = 'red' 
+    # second loops itteraction i = 1, color = 'green' 
+        
+    
 
 # https://docs.python.org/3/library/turtle.html TURTLE DOCS
 
 def init_turtle():
-	# create turtle screen
+    # create turtle screen
     screen = turtle.Screen()
-	# middle position will be x:0 y:0. top-middle: x:0 y:250px (HEIGHT / 2). bottom-middle: x:0 y:-250px (HEIGHT / 2)
+    # middle position will be x:0 y:0. top-middle: x:0 y:250px (HEIGHT / 2). bottom-middle: x:0 y:-250px (HEIGHT / 2)
     screen.setup(WIDTH, HEIGHT)
     screen.title('Turtle Racing!')
 
@@ -101,3 +119,5 @@ colors = COLORS[:racers]
 # racer2.forward(100)
 # # 90 degree to turn ti the right
 # racer2.right(90)
+
+# 3:52:15
