@@ -22,6 +22,8 @@ def get_number_of_racers():
 			print('Number not in range 2-10. Try Again!')
 
 
+# https://docs.python.org/3/library/turtle.html TURTLE DOCS
+
 def init_turtle():
 	# create turtle screen
     screen = turtle.Screen()
@@ -34,6 +36,14 @@ init_turtle()
 
 # we use this module to can change the object
 racer = turtle.Turtle()
+# change racer speed
+racer.speed(2)
+
+# change icon (arrow => turtle)
+racer.shape('turtle')
+
+# change color of racer
+racer.color('cian')
 
 # racer will move forward for 100 px
 racer.forward(100)
