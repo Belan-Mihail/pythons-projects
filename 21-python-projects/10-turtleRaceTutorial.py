@@ -84,7 +84,9 @@ random.shuffle(COLORS)
 
 # we slice our shuffled list accroding number of racers that we have
 colors = COLORS[:racers]
-race(colors)
+winner = race(colors)
+print('The winner is turtle with color:', winner)
+time.sleep(5)
 
 
 # we use this module to can change the object - turtle
@@ -146,4 +148,4 @@ race(colors)
 # # 90 degree to turn ti the right
 # racer2.right(90)
 
-# 3:52:15
+# 4:13:11
