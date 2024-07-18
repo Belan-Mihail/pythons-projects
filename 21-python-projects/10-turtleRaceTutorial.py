@@ -35,7 +35,11 @@ def race(colors):
             # move racer forward
             racer.forward(distance)
 
-            
+            # give us pos of turtle
+            x, y = racer.pos()
+            if y >= HEIGHT / 2 - 10:
+                # we look for winnig colors use index of racer in turtles list
+                return colors[turtles.index(racer)]
 
 
 def create_turtles(colors):
