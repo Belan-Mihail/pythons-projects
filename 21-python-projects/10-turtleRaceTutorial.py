@@ -26,7 +26,7 @@ def get_number_of_racers():
 
 def create_turtles(colors):
     turtles = []
-    spacingX = WIDTH / (len(colors + 1))
+    spacingX = WIDTH / (len(colors) + 1)
     
     for i, color in enumerate(colors):
         racer = turtle.Turtle()
@@ -36,7 +36,7 @@ def create_turtles(colors):
         racer.left(90)
         racer.penup()
         # position of racers: x pos: -WIDTH / 2 (i + 1) * spacingX, y pos: -HEIGHT / 2 + 20
-        racer.setpos(-WIDTH / 2 (i + 1) * spacingX, -HEIGHT / 2 + 20)
+        racer.setpos(-WIDTH / 2 + (i + 1) * spacingX, -HEIGHT / 2 + 20)
         racer.pendown()
         turtles.append(racer)
 
