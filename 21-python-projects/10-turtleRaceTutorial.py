@@ -26,6 +26,7 @@ def get_number_of_racers():
 
 def create_turtles(colors):
     turtles = []
+    spacingX = WIDTH / (len(colors + 1))
     
     for i, color in enumerate(colors):
         racer = turtle.Turtle()
@@ -33,6 +34,10 @@ def create_turtles(colors):
         racer.shape('turtle')
         # to turn racer up
         racer.left(90)
+        racer.penup()
+        # position of racers: x pos: -WIDTH / 2 (i + 1) * spacingX, y pos: -HEIGHT / 2 + 20
+        racer.setpos(-WIDTH / 2 (i + 1) * spacingX, -HEIGHT / 2 + 20)
+        racer.pendown()
         turtles.append(racer)
 
     # enumerate give us a index and value for each items we lopp through
@@ -59,6 +64,7 @@ random.shuffle(COLORS)
 
 # we slice our shuffled list accroding number of racers that we have
 colors = COLORS[:racers]
+create_turtles(colors)
 
 
 # we use this module to can change the object - turtle
