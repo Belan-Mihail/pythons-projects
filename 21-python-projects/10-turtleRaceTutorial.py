@@ -24,6 +24,20 @@ def get_number_of_racers():
             print('Number not in range 2-10. Try Again!')
 
 
+def race(colors):
+    turtles = create_turtles(colors)
+
+    while True:
+        for racer in turtles:
+            # random move from 1 to 20 px
+            distance = random.randrange(1, 20)
+
+            # move racer forward
+            racer.forward(distance)
+
+            
+
+
 def create_turtles(colors):
     turtles = []
     spacingX = WIDTH / (len(colors) + 1)
@@ -39,6 +53,8 @@ def create_turtles(colors):
         racer.setpos(-WIDTH / 2 + (i + 1) * spacingX, -HEIGHT / 2 + 20)
         racer.pendown()
         turtles.append(racer)
+
+    return turtles
 
     # enumerate give us a index and value for each items we lopp through
     # ['red', 'green']
@@ -64,7 +80,7 @@ random.shuffle(COLORS)
 
 # we slice our shuffled list accroding number of racers that we have
 colors = COLORS[:racers]
-create_turtles(colors)
+race(colors)
 
 
 # we use this module to can change the object - turtle
