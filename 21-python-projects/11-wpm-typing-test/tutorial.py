@@ -32,6 +32,27 @@ def wpm_test(stdscr):
     stdscr.refresh()
     stdscr.getkey()
 
+    while True:
+        # get key that pressed by user
+        key = stdscr.getkey()
+
+        # ord(key) numeric represent any key on the keyboard. 27 == esc
+        if ord(key) == 27:
+            break
+
+        # add key to current_text
+        current_text.append(key)
+
+        stdscr.clear()
+        stdscr.addstr(target_text)
+
+        # looking throug the current_text
+        for letter in current_text:
+            # print current text
+            stdscr.addstr(letter, curses.color_pair(1))
+
+        stdscr.refresh()
+
 def main(stdscr):
     curses.init_pair(1, curses.COLOR_GREEN, curses.COLOR_BLACK)
     curses.init_pair(2, curses.COLOR_RED, curses.COLOR_BLACK)
@@ -43,4 +64,4 @@ def main(stdscr):
 
 wrapper(main)
 
-# 4:23:39
+# 4:37:50
