@@ -30,8 +30,12 @@ def display_text(stdscr, target, current, wpm=0):
     # looking throug the current_text
     # enumerate give as index and value for each itteration
     for i, letter in enumerate(current):
+        correct_letter = target[i]
+        color = curses.color_pair(1)
+        if letter != correct_letter:
+            color = curses.color_pair(2)
         # print current text over the target_text by index and value.
-        stdscr.addstr(0, i, letter, curses.color_pair(1))
+        stdscr.addstr(0, i, letter, color)
 
 
 def wpm_test(stdscr):
