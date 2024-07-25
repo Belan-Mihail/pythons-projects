@@ -33,16 +33,6 @@ def wpm_test(stdscr):
     stdscr.getkey()
 
     while True:
-        # get key that pressed by user
-        key = stdscr.getkey()
-
-        # ord(key) numeric represent any key on the keyboard. 27 == esc
-        if ord(key) == 27:
-            break
-
-        # add key to current_text
-        current_text.append(key)
-
         stdscr.clear()
         stdscr.addstr(target_text)
 
@@ -52,6 +42,22 @@ def wpm_test(stdscr):
             stdscr.addstr(letter, curses.color_pair(1))
 
         stdscr.refresh()
+
+        # get key that pressed by user
+        key = stdscr.getkey()
+
+        # ord(key) numeric represent any key on the keyboard. 27 == esc
+        if ord(key) == 27:
+            break
+        #  check backspace key to delete last element
+        if key in ("KEY_BACKSPACE", '\b', "\x7f"):
+            if len(current_text) > 0:
+                current_text.pop()
+        else:
+            # add key to current_text
+            current_text.append(key)
+
+        
 
 def main(stdscr):
     curses.init_pair(1, curses.COLOR_GREEN, curses.COLOR_BLACK)
