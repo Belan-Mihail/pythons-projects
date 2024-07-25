@@ -47,6 +47,7 @@ def wpm_test(stdscr):
     current_text = []
     wpm = 0
     start_time = time.time()
+    stdscr.nodelay(True)
     stdscr.clear()
     stdscr.addstr(target_text)
     stdscr.refresh()
@@ -63,8 +64,16 @@ def wpm_test(stdscr):
 
         stdscr.refresh()
 
-        # get key that pressed by user
-        key = stdscr.getkey()
+        # convert current text (list) into string to compare with target_text(string)
+        ''.join(current_text)
+
+        try:
+            # get key that pressed by user
+            key = stdscr.getkey()
+        except:
+            continue
+
+        
 
         # ord(key) numeric represent any key on the keyboard. 27 == esc
         if ord(key) == 27:
@@ -92,4 +101,4 @@ def main(stdscr):
 
 wrapper(main)
 
-# 4:37:50
+# 5:01:19
