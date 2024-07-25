@@ -27,6 +27,9 @@ def start_screen(stdscr):
 def display_text(stdscr, target, current, wpm=0):
     stdscr.addstr(target)
 
+    # display speed of typing below the text
+    stdscr.addstr(1, 0, f'WPM: {wpm}')
+
     # looking throug the current_text
     # enumerate give as index and value for each itteration
     for i, letter in enumerate(current):
@@ -41,6 +44,7 @@ def display_text(stdscr, target, current, wpm=0):
 def wpm_test(stdscr):
     target_text = 'Hello world this is some text for this app'
     current_text = []
+    wpm = 0
     stdscr.clear()
     stdscr.addstr(target_text)
     stdscr.refresh()
@@ -62,7 +66,9 @@ def wpm_test(stdscr):
         if key in ("KEY_BACKSPACE", '\b', "\x7f"):
             if len(current_text) > 0:
                 current_text.pop()
-        else:
+        
+        # we can add current letter only inside len of target text and not more
+        elif len(current_text) < len(target_text):
             # add key to current_text
             current_text.append(key)
 
