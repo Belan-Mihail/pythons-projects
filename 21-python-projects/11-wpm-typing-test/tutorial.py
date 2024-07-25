@@ -24,6 +24,16 @@ def start_screen(stdscr):
 #     key = stdscr.getkey()
 #     print(key)
 
+def display_text(stdscr, target, current, wpm=0):
+    stdscr.addstr(target)
+
+    # looking throug the current_text
+    # enumerate give as index and value for each itteration
+    for i, letter in enumerate(current):
+        # print current text over the target_text by index and value.
+        stdscr.addstr(0, i, letter, curses.color_pair(1))
+
+
 def wpm_test(stdscr):
     target_text = 'Hello world this is some text for this app'
     current_text = []
@@ -34,12 +44,7 @@ def wpm_test(stdscr):
 
     while True:
         stdscr.clear()
-        stdscr.addstr(target_text)
-
-        # looking throug the current_text
-        for letter in current_text:
-            # print current text
-            stdscr.addstr(letter, curses.color_pair(1))
+        display_text(stdscr, target_text, current_text)
 
         stdscr.refresh()
 
